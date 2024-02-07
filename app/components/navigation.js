@@ -6,20 +6,22 @@ import avatar from '@/public/vercel.svg'
 import Component from '../components/login-btn'
 import { SessionProvider } from 'next-auth/react'
 import { useSession, signIn, signOut, getSession } from "next-auth/react"
+import GithubProvider from "next-auth/providers/github";
 
 
 export default function NavigationPage() {
     const [sessionUser, setSessionUser] = useState();
-    
+
     useEffect(() => {
         Promise.resolve(getSession()).then(res => {
-            if(!res)
-              signIn()
-            
+            if (!res){
+                signIn(GithubProvider)
+            }
+
             setSessionUser(res.user)
         })
     }, [])
-    
+
     return (
         <SessionProvider>
             <div className="navbar bg-base-100">
@@ -31,19 +33,7 @@ export default function NavigationPage() {
                     </ul>
                 </div>
                 <div className="flex-none gap-2">
-                <Component />
-                    {/* <div className="dropdown dropdown-end">
-                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
-                                <Image alt="Tailwind CSS Navbar component" src={avatar} width={70} />
-                            </div>
-                        </div>
-                        <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                            <li>
-                                
-                            </li>
-                        </ul>
-                    </div> */}
+                    <Component />
                 </div>
             </div>
         </SessionProvider>
