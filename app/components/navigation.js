@@ -26,8 +26,8 @@ export default function NavigationPage() {
                 <div className="flex-1">
                     <Link href={"/"} className="btn btn-ghost text-xl">SectorApp</Link>
                     <ul className='space-y-5'>
-                        <Link className='mr-5 underline' href={"/sector-assign/assign"} > Sector-Assign </Link>
-                        <Link className='mr-5 underline' href={"/sector-assign/list"} > Assigned-List </Link>
+                        <Link className='mr-5 underline' href={"/sector-assign/list"} > Sector-Assign </Link>
+                        <Link className='mr-5 underline' href={"/sector/list"} > Sector </Link>
                     </ul>
                 </div>
                 <div className="flex-none gap-2">

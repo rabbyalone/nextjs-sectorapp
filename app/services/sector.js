@@ -2,7 +2,7 @@
 const baseURL = "https://sectorapp.azurewebsites.net"
 
 export const getSectors = async () => {
-    const response = await fetch(baseURL + '/api/Sectors');
+    const response = await fetch(baseURL + '/api/Sectors', { cache: 'no-store'});
 
     if (!response.ok) {
         throw new Error('Failed to fetch Sectors');
@@ -12,9 +12,21 @@ export const getSectors = async () => {
 };
 
 
+export const getItemsBySectorId = async (id) => {
+    const response = await fetch(baseURL + '/api/sectors/' + id, {
+    });
+
+    if (!response.ok) {
+        throw new Error('Failed to fetch items');
+    }
+
+    return response.json();
+};
+
+
 
 export const createSector = async (data) => {
-    const response = await fetch('/api/Sectors', {
+    const response = await fetch(baseURL + '/api/Sectors', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -31,7 +43,7 @@ export const createSector = async (data) => {
 
 
 export const updateSector = async (id, data) => {
-    const response = await fetch(`/api/Sectors/${id}`, {
+    const response = await fetch(`${baseURL}/api/Sectors/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
