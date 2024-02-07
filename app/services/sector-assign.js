@@ -1,4 +1,4 @@
-const baseURL = "http://localhost:5234"
+const baseURL = "https://sectorapp.azurewebsites.net"
 
 export const getItems = async () => {
     const response = await fetch(baseURL + '/api/sector-assign', {
