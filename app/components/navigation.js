@@ -11,14 +11,14 @@ import { useSession, signIn, signOut, getSession } from "next-auth/react"
 export default function NavigationPage() {
     const [sessionUser, setSessionUser] = useState();
     
-    // useEffect(() => {
-    //     Promise.resolve(getSession()).then(res => {
-    //         if(!res)
-    //           signIn()
+    useEffect(() => {
+        Promise.resolve(getSession()).then(res => {
+            if(!res)
+              signIn()
             
-    //         setSessionUser(res.user)
-    //     })
-    // }, [])
+            setSessionUser(res.user)
+        })
+    }, [])
     
     return (
         <SessionProvider>
