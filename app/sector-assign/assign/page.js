@@ -56,7 +56,8 @@ export default function CreatePage() {
         <>
             <div className="max-w-sm mx-auto glass border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <div className="p-5">
-                    <h2 className="card-title mb-5">Assign Sectors</h2>
+                    <h2 className="card-title ">Assign Sectors</h2>
+                    <p className='text-l mb-5'>Please enter your name and pick the Sectors you are currently involved in.</p>
 
                     <form onSubmit={handleSubmit} className="max-w-sm">
                         <div className="mb-5">
