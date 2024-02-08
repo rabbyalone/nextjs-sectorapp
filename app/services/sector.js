@@ -43,7 +43,7 @@ export const createSector = async (data) => {
 
 
 export const updateSector = async (id, data) => {
-    const response = await fetch(`${baseURL}/api/Sectors/${id}`, {
+    const response = await fetch(`${baseURL}/api/Sectors?id=${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
