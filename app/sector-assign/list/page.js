@@ -32,7 +32,7 @@ export default async function ListPage() {
                                     <td>{res.name}</td>
                                     <td>{res.sectors.map(r => <span className='badge badge-accent mr-1' key={r.value}>{r.label}</span>)}</td>
                                     <td>{res.createBy}</td>
-                                    <td><ButtonPage id={res.id} /></td>
+                                    <td><ButtonPage id={res.id} createBy={res.createBy} /></td>
                                 </tr>))
                         }
                     </tbody>

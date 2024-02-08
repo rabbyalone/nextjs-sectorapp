@@ -4,6 +4,7 @@ import ButtonPage from '@/app/components/Button';
 import { getSectors } from '@/app/services/sector';
 import React from 'react'
 import Link from 'next/link'
+import SectorButtonPage from '@/app/components/SectorButton';
 
 export default async function ListPage() {
 
@@ -28,7 +29,7 @@ export default async function ListPage() {
                                     <tr key={res.id}>
                                         <td>{res.groupName}</td>
                                         <td>{res.sectors.map(r => <span className='badge badge-accent mr-1' key={r.value}>{r.label}</span>)}</td>
-                                        <td><ButtonPage id={res.id} /></td>
+                                        <td><SectorButtonPage id={res.id} /></td>
                                     </tr>))
                             }
                         </tbody>
