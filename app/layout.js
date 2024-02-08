@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className="min-h-screen">
       <body className={inter.className}>
         <NavigationPage />
-        <div className="min-h-screen mx-auto">
+        <div className="min-h-screen mx-auto bg-gray-500">
         {children}          
         </div>
         <FooterPage />
