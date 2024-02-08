@@ -4,10 +4,11 @@ import ButtonPage from '@/app/components/Button';
 import { getItems } from '@/app/services/sector-assign';
 import React from 'react'
 import Link from 'next/link'
+import { getSession } from "next-auth/react"
 
 export default async function ListPage() {
-
-    const allData = await getItems();
+    const session = await getSession();
+    const allData = await getItems(session.user.email);
 
     return (
         <div className="w-75 mx-auto glass border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 overflow-auto">
