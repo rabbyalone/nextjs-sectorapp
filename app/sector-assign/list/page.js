@@ -8,7 +8,10 @@ import { getSession } from "next-auth/react"
 
 export default async function ListPage() {
     const session = await getSession();
-    const allData = await getItems(session.user.email);
+    let allData = [];
+    if(session){
+      allData = await getItems(session?.user?.email);
+    }
 
     return (
         <div className="w-75 mx-auto glass border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 overflow-auto">
@@ -26,6 +29,7 @@ export default async function ListPage() {
                             </tr>
                         </thead>
                         <tbody>
+                            {allData.length < 1 ? <tr><td>{"No Data Found"}</td> <td></td> <td></td></tr>: ''}
                             {
                                 allData.map(res => (
                                     <tr key={res.id}>
